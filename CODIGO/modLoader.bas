@@ -208,7 +208,8 @@ End Sub
 Public Sub SaveNPCsMapData()
     Dim fh As Integer
     fh = FreeFile
-    Open "C:\QuestNPCsMapData.bin" For Binary As fh
+
+    Open App.Path & "\..\Recursos\init\QuestNPCsMapData.bin" For Binary As fh
         Dim i As Integer
         For i = 1 To NumMaps
             If MapHasNPC(i) Then

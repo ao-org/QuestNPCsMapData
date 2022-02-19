@@ -469,7 +469,7 @@ Public Sub ChangeValue(ByVal Main As String, ByVal Key As String, ByVal Value As
     Exit Sub
 
 ChangeValue_Err:
-    Call TraceError(Err.Number, Err.Description, "clsIniManager.ChangeValue", Erl)
+   ' Call TraceError(Err.Number, Err.Description, "clsIniManager.ChangeValue", Erl)
     
     
 End Sub
@@ -654,7 +654,7 @@ Private Function AddNode(ByRef Name As String) As Long
     Exit Function
 
 AddNode_Err:
-    Call TraceError(Err.Number, Err.Description, "clsIniManager.AddNode", Erl)
+    'Call TraceError(Err.Number, Err.Description, "clsIniManager.AddNode", Erl)
     
     
 End Function
@@ -712,7 +712,7 @@ Private Function AddKey(ByRef Main As String, _
     Exit Function
 
 AddKey_Err:
-    Call TraceError(Err.Number, Err.Description, "clsIniManager.AddKey", Erl)
+  '  Call TraceError(Err.Number, Err.Description, "clsIniManager.AddKey", Erl)
     
     
 End Function
@@ -758,7 +758,7 @@ Public Sub DumpFile(ByRef File As String)
     Exit Sub
 
 DumpFile_Err:
-    Call TraceError(Err.Number, Err.Description, "clsIniManager.DumpFile", Erl)
+    'Call TraceError(Err.Number, Err.Description, "clsIniManager.DumpFile", Erl)
     
     
 End Sub
@@ -782,7 +782,7 @@ Public Function GetKey(ByVal Main As String, ByVal Index As Long) As String
         Exit Function
 
 ErrHandler:
-     Call TraceError(Err.Number, Err.Description, "clsIniManager.GetKey", Erl)
+     'Call TraceError(Err.Number, Err.Description, "clsIniManager.GetKey", Erl)
      
         
 End Function
@@ -806,7 +806,7 @@ Public Property Get EntriesCount(ByVal Main As String) As Long
         Exit Function
 
 ErrHandler:
-108     Call TraceError(Err.Number, Err.Description, "clsIniManager.GetKey", Erl)
+108   '  Call TraceError(Err.Number, Err.Description, "clsIniManager.GetKey", Erl)
 110
 
 End Property
@@ -833,7 +833,7 @@ Public Sub GetPair(ByVal Main As String, ByVal Index As Long, ByRef Key As Strin
         Exit Sub
 
 ErrHandler:
-108     Call TraceError(Err.Number, Err.Description, "clsIniManager.GetPair", Erl)
+108   '  Call TraceError(Err.Number, Err.Description, "clsIniManager.GetPair", Erl)
 110
         
 End Sub
