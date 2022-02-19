@@ -184,8 +184,9 @@ Public Const MAX_QUESTNPCS_VISIBLE As Long = 100
 '''''''''''''''''''''''''''''''''''''''''''''''
 
 Sub Main()
-    DatPath = "C:\Ao20\Recursos\Dat\"
-    MapPath = "C:\Ao20\Recursos\Mapas\"
+
+    DatPath = App.Path & "\..\Recursos\Dat\"
+    MapPath = App.Path & "\..\Recursos\Mapas\"
     
     Set LeerNPCs = New clsIniManager
     Call LeerNPCs.Initialize(DatPath & "NPCs.dat")
