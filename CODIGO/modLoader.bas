@@ -176,6 +176,7 @@ Public ListNPCMapData() As t_QuestNPCMapData
 Public Type t_QuestNPCMapData
     Position As t_Position
     NPCNumber As Integer
+    State As Integer
 End Type
 
 Public MapHasNPC() As Boolean
@@ -216,10 +217,12 @@ Public Sub SaveNPCsMapData()
             If MapHasNPC(i) Then
                 Put fh, , CInt(i)
                 Dim j As Long
+                
                 For j = 1 To MAX_QUESTNPCS_VISIBLE
                     Put fh, , CInt(ListNPCMapData(i, j).NPCNumber)
                     Put fh, , CInt(ListNPCMapData(i, j).Position.X)
                     Put fh, , CInt(ListNPCMapData(i, j).Position.y)
+                    Put fh, , CInt(ListNPCMapData(i, j).State)
                 Next j
             End If
         Next i
@@ -337,10 +340,19 @@ Public Sub CargarMapaFormatoCSM(ByVal map As Long, ByVal MAPFl As String)
                             ListNPCMapData(map, QuestNpcCount).NPCNumber = NumNpc
                             ListNPCMapData(map, QuestNpcCount).Position.X = NPCs(i).X
                             ListNPCMapData(map, QuestNpcCount).Position.y = NPCs(i).y
+                            ListNPCMapData(map, QuestNpcCount).State = 2
                             QuestNpcCount = QuestNpcCount + 1
                             MapHasNPC(map) = True
-                            'Debug.Print "En el Mapa: " & map & " en la posición: " & NPCs(i).X & " - " & NPCs(i).y & " se encuentra el NPC de Quest: " & NPCName
+                            'Lo puso el feroncho: Debug.Print "En el Mapa: " & map & " en la posición: " & NPCs(i).X & " - " & NPCs(i).y & " se encuentra el NPC de Quest: " & NPCName
+                        ElseIf Val(GetNPCData(NumNpc, "Minimap")) > 0 Then
+                            ListNPCMapData(map, QuestNpcCount).NPCNumber = NumNpc
+                            ListNPCMapData(map, QuestNpcCount).Position.X = NPCs(i).X
+                            ListNPCMapData(map, QuestNpcCount).Position.y = NPCs(i).y
+                            ListNPCMapData(map, QuestNpcCount).State = Val(GetNPCData(NumNpc, "Minimap"))
+                            QuestNpcCount = QuestNpcCount + 1
+                            MapHasNPC(map) = True
                         End If
+                        
                     End If
 312             Next i
             End If
