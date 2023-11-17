@@ -184,8 +184,16 @@ Public NumMaps As Long
 Public Const MAX_QUESTNPCS_VISIBLE As Long = 220
 '''''''''''''''''''''''''''''''''''''''''''''''
 
-Sub Main()
+Private FileOutputPath As String
 
+Sub Main()
+    ' Se va a leer la linea de comando para saber el output donde va a ir el archivo QuestNPCsMapData.bin
+    Dim rdata As String
+    rdata = Command
+    
+    FileOutputPath = ReadField(1, rdata, Asc("*")) ' File Type Name
+
+    Form1.Visible = True
     DatPath = App.Path & "\..\Recursos\Dat\"
     MapPath = App.Path & "\..\Recursos\Mapas\"
     
@@ -205,13 +213,23 @@ Sub Main()
     Next map
     
     Call SaveNPCsMapData
+    End
 End Sub
 
 Public Sub SaveNPCsMapData()
     Dim fh As Integer
     fh = FreeFile
-
-    Open App.Path & "\..\Recursos\OUTPUT\QuestNPCsMapData.bin" For Binary As fh
+    
+    Dim OutputPath As String
+    OutputPath = ""
+    
+    If FileOutputPath <> Null Then
+        OutputPath = FileOutputPath
+    Else
+        OutputPath = App.Path & "\..\Recursos\OUTPUT"
+    End If
+    
+    Open OutputPath & "\QuestNPCsMapData.bin" For Binary As fh
         Dim i As Integer
         For i = 1 To NumMaps
             If MapHasNPC(i) Then
