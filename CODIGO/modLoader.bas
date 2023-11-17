@@ -223,7 +223,7 @@ Public Sub SaveNPCsMapData()
     Dim OutputPath As String
     OutputPath = ""
     
-    If FileOutputPath <> Null Then
+    If FileOutputPath <> "" Then
         OutputPath = FileOutputPath
     Else
         OutputPath = App.Path & "\..\Recursos\OUTPUT"
