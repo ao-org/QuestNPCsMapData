@@ -6,3 +6,5 @@ It can run in the terminal:
 ```
 "C:\QuestNPCsMapData.exe"
 ```
+
+It generated the file `QuestNPCsMapData.bin` in `..\Recursos\OUTPUT\` folder
