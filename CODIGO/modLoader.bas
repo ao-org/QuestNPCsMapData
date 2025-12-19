@@ -200,7 +200,7 @@ Sub Main()
     Set LeerNPCs = New clsIniManager
     Call LeerNPCs.Initialize(DatPath & "NPCs.dat")
     
-    NumMaps = 839 ' test
+    NumMaps = 754 ' test
     
     'ReDim ListNPCMapData(1 To NumMaps) As Variant
     ReDim ListNPCMapData(1 To NumMaps, 1 To MAX_QUESTNPCS_VISIBLE) As t_QuestNPCMapData
