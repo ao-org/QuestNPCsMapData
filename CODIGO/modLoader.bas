@@ -325,9 +325,9 @@ Public Sub CargarMapaFormatoCSM(ByVal map As Long, ByVal MAPFl As String)
             End If
         
             'Cargamos Layer 5
-200         If .NumeroLayers(5) > 0 Then
-201             ReDim L5(1 To .NumeroLayers(5))
-202             Get #fh, , L5
+            If .NumeroLayers(5) > 0 Then
+                ReDim L5(1 To .NumeroLayers(5))
+                Get #fh, , L5
             End If
 
 202         If .NumeroTriggers > 0 Then
