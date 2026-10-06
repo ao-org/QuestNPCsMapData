@@ -249,7 +249,7 @@ Public Sub Initialize(ByVal File As String)
 
 Initialize_Err:
     Close handle
-    MsgBox Err.Description & vbNewLine & "Archivo: " & File
+    Debug.Print "Error clsIniManager: " & Err.Description & " - Archivo: " & File
     
 End Sub
 

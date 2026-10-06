@@ -14,7 +14,7 @@ Public Function FileExist(ByVal File As String, Optional FileType As VbFileAttri
         Exit Function
 
 FileExist_Err:
-102     MsgBox "General.FileExist"
+102     Debug.Print "Error: General.FileExist"
 End Function
 
 Function ReadField(ByVal Pos As Integer, ByRef Text As String, ByVal SepASCII As Byte) As String
@@ -47,5 +47,5 @@ Function ReadField(ByVal Pos As Integer, ByRef Text As String, ByVal SepASCII As
         Exit Function
 
 ReadField_Err:
-116     MsgBox "General.ReadField"
+116     Debug.Print "Error: General.ReadField"
 End Function

@@ -193,7 +193,7 @@ Sub Main()
     
     FileOutputPath = ReadField(1, rdata, Asc("*")) ' File Type Name
 
-    Form1.Visible = True
+    'Form1.Visible = True
     DatPath = App.Path & "\..\Recursos\Dat\"
     MapPath = App.Path & "\..\Recursos\Mapas\"
     
@@ -209,7 +209,7 @@ Sub Main()
     Dim map As Long
     For map = 1 To NumMaps
         Call CargarMapaFormatoCSM(map, MapPath & "Mapa" & map & ".csm")
-        DoEvents
+        'DoEvents
     Next map
     
     Call SaveNPCsMapData
@@ -280,7 +280,7 @@ Public Sub CargarMapaFormatoCSM(ByVal map As Long, ByVal MAPFl As String)
         End If
         
 104     If FileLen(MAPFl) = 0 Then
-106         MsgBox "Se trato de cargar un mapa corrupto o mal generado" & vbNewLine & "Mapa: " & MAPFl
+106         Debug.Print "Omitiendo mapa corrupto o mal generado: " & MAPFl
             Exit Sub
         End If
     
@@ -389,7 +389,7 @@ Public Sub CargarMapaFormatoCSM(ByVal map As Long, ByVal MAPFl As String)
 
 ErrorHandler:
 394     Close fh
-        MsgBox "Error cargando mapa " & map
+        Debug.Print "Error cargando mapa " & map
 End Sub
 
 Public Sub CargaNpcsDat(Optional ByVal ActualizarNPCsExistentes As Boolean = False)
@@ -403,7 +403,7 @@ Public Sub CargaNpcsDat(Optional ByVal ActualizarNPCsExistentes As Boolean = Fal
             Exit Sub
 
 CargaNpcsDat_Err:
-118         MsgBox "Error cargando NPCs"
+118         Debug.Print "Error cargando NPCs"
         
 End Sub
 
