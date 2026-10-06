@@ -54,7 +54,7 @@ End Type
 Private Type t_MapHeader
 
     NumeroBloqueados As Long
-    NumeroLayers(1 To 4) As Long
+    NumeroLayers(1 To 5) As Long
     NumeroTriggers As Long
     NumeroLuces As Long
     NumeroParticulas As Long
@@ -257,6 +257,7 @@ Public Sub CargarMapaFormatoCSM(ByVal map As Long, ByVal MAPFl As String)
         Dim L2()         As t_DatosGrh
         Dim L3()         As t_DatosGrh
         Dim L4()         As t_DatosGrh
+        Dim L5()         As t_DatosGrh
         Dim Triggers()   As t_DatosTrigger
         Dim Luces()      As t_DatosLuces
         Dim Particulas() As t_DatosParticulas
@@ -321,6 +322,12 @@ Public Sub CargarMapaFormatoCSM(ByVal map As Long, ByVal MAPFl As String)
 190         If .NumeroLayers(4) > 0 Then
 192             ReDim L4(1 To .NumeroLayers(4))
 194             Get #fh, , L4
+            End If
+        
+            'Cargamos Layer 5
+200         If .NumeroLayers(5) > 0 Then
+201             ReDim L5(1 To .NumeroLayers(5))
+202             Get #fh, , L5
             End If
 
 202         If .NumeroTriggers > 0 Then
